@@ -84,7 +84,7 @@ button{
     </p>
   </div>
 
-  <button class="print-button" onclick="window.print()">
+<button class="print-button" onclick="imprimerPassPRNT()">
     IMPRIMER LA FACTURE
   </button>
 </div>
@@ -114,6 +114,69 @@ function generer(){
 
   document.getElementById('invoice').style.display = 'block';
 }
+  function imprimerPassPRNT() {
+  if (document.getElementById('invoice').style.display !== 'block') {
+    alert("Veuillez générer la facture d'abord.");
+    return;
+  }
+
+  const contenu = `
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        color: black;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 10px;
+      }
+      h1, h2, p { text-align: center; }
+      h1 { font-size: 25px; }
+      h2 { font-size: 22px; }
+      .line {
+        display: flex;
+        justify-content: space-between;
+        margin: 18px 0;
+      }
+      .total { font-size: 23px; }
+      hr {
+        border: 0;
+        border-top: 2px dashed black;
+        margin: 18px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>LA ROSE D’OR</h1>
+    <h2>FACTURE</h2>
+    <p>
+      42 AVENUE PIERRE BROSSOLETTE<br>
+      92240 MALAKOFF<br>
+      SIRET : 943 447 532<br>
+      Téléphone : 01 71 10 62 37
+    </p>
+    <hr>
+    <div class="line"><span>Date :</span><span>${document.getElementById('date').textContent}</span></div>
+    <div class="line"><span>Nombre de repas :</span><span>${document.getElementById('nb').textContent}</span></div>
+    <hr>
+    <div class="line"><span>Total HT :</span><span>${document.getElementById('ht').textContent}</span></div>
+    <div class="line"><span>TVA 10% :</span><span>${document.getElementById('tva').textContent}</span></div>
+    <hr>
+    <div class="line total"><span>Total TTC :</span><span>${document.getElementById('ttc').textContent}</span></div>
+    <hr>
+    <p>MERCI DE VOTRE CONFIANCE</p>
+  </body>
+  </html>`;
+
+  const url = "starpassprnt://v1/print/nopreview?"
+    + "back=" + encodeURIComponent(window.location.href)
+    + "&html=" + encodeURIComponent(contenu);
+
+  window.location.href = url;
+  }
 </script>
 </body>
 </html>
