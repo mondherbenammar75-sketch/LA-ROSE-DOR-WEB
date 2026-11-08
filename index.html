@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>LA ROSE D’OR - FACTURE</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;padding:20px;
+  font-family:Arial,sans-serif;
+  background:#f2f2f2;color:#17191d
+}
+.container{
+  max-width:500px;margin:20px auto;
+  background:white;padding:25px;
+  border-radius:14px;
+  box-shadow:0 3px 15px #0002
+}
+h1{text-align:center;font-size:25px;margin:5px 0}
+h2{text-align:center;font-size:22px;margin:12px 0 20px}
+.info{text-align:center;font-size:14px;line-height:1.7}
+hr{border:0;border-top:1px dashed #555;margin:18px 0}
+label{display:block;font-weight:bold;margin:15px 0 6px}
+input{
+  width:100%;padding:13px;
+  border:1px solid #bbb;border-radius:8px;
+  font-size:18px
+}
+button{
+  width:100%;padding:15px;margin-top:18px;
+  border:0;border-radius:8px;
+  background:#17191d;color:white;
+  font-size:18px;font-weight:bold
+}
+#invoice{display:none}
+.line{display:flex;justify-content:space-between;margin:13px 0}
+.total{font-size:22px;font-weight:bold}
+@media print{
+  body{padding:0;background:white}
+  .container{box-shadow:none;margin:0;padding:10px;border-radius:0}
+  .inputs,.print-button{display:none!important}
+  #invoice{display:block!important}
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="info">
+    <h1>LA ROSE D’OR</h1>
+    <h2>FACTURE</h2>
+    42 AVENUE PIERRE BROSSOLETTE<br>
+    92240 MALAKOFF<br>
+    SIRET : 943 447 532<br>
+    Téléphone : 01 71 10 62 37
+  </div>
+
+  <hr>
+
+  <div class="inputs">
+    <label>Nombre de repas</label>
+    <input id="repas" type="number" min="0" placeholder="Nombre de repas">
+
+    <label>Prix unitaire TTC (€)</label>
+    <input id="prix" type="number" min="0" step="0.01" placeholder="Prix en euros">
+
+    <button onclick="generer()">GÉNÉRER LA FACTURE</button>
+  </div>
+
+  <div id="invoice">
+    <hr>
+    <div class="line"><span>Date :</span><strong id="date"></strong></div>
+    <div class="line"><span>Nombre de repas :</span><strong id="nb"></strong></div>
+    <hr>
+    <div class="line"><span>Total HT :</span><strong id="ht"></strong></div>
+    <div class="line"><span>TVA 10% :</span><strong id="tva"></strong></div>
+    <hr>
+    <div class="line total"><span>Total TTC :</span><strong id="ttc"></strong></div>
+    <hr>
+    <p style="text-align:center;font-weight:bold;margin-top:25px">
+      MERCI DE VOTRE CONFIANCE
+    </p>
+  </div>
+
+  <button class="print-button" onclick="window.print()">
+    IMPRIMER LA FACTURE
+  </button>
+</div>
+
+<script>
+function generer(){
+  const repas = Number(document.getElementById('repas').value);
+  const prix = Number(document.getElementById('prix').value);
+
+  if(!repas || repas < 0 || !prix || prix < 0){
+    alert("Veuillez saisir le nombre de repas et le prix.");
+    return;
+  }
+
+  const ttc = Math.round(prix * 100) / 100;
+  const tva = Math.round(ttc * 10) / 100;
+  const ht = Math.round((ttc - tva) * 100) / 100;
+
+  const euro = n => n.toFixed(2) + " €";
+
+  document.getElementById('date').textContent =
+    new Date().toLocaleDateString('fr-FR');
+  document.getElementById('nb').textContent = repas;
+  document.getElementById('ht').textContent = euro(ht);
+  document.getElementById('tva').textContent = euro(tva);
+  document.getElementById('ttc').textContent = euro(ttc);
+
+  document.getElementById('invoice').style.display = 'block';
+}
+</script>
+</body>
+</html>
