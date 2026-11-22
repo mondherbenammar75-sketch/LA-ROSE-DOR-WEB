@@ -6,53 +6,215 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="apple-touch-icon" href="apple-touch-icon-1.png">
 <link rel="icon" type="image/png" href="apple-touch-icon-1.png">
-  <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0c0c0c">
+
 <title>LA ROSE D’OR - FACTURE</title>
+
 <style>
-*{box-sizing:border-box}
-body{
-  margin:0;padding:20px;
-  font-family:Arial,sans-serif;
-  background:#f2f2f2;color:#17191d
+* {
+  box-sizing: border-box;
 }
-.container{
-  max-width:500px;margin:20px auto;
-  background:white;padding:25px;
-  border-radius:14px;
-  box-shadow:0 3px 15px #0002
+
+body {
+  margin: 0;
+  padding: 15px;
+  font-family: Arial, sans-serif;
+  background: #0c0c0c;
+  color: #f8f6f0;
 }
-h1{text-align:center;font-size:25px;margin:5px 0}
-h2{text-align:center;font-size:22px;margin:12px 0 20px}
-.info{text-align:center;font-size:14px;line-height:1.7}
-hr{border:0;border-top:1px dashed #555;margin:18px 0}
-label{display:block;font-weight:bold;margin:15px 0 6px}
-input{
-  width:100%;padding:13px;
-  border:1px solid #bbb;border-radius:8px;
-  font-size:18px
+
+.container {
+  max-width: 500px;
+  margin: 15px auto;
+  background: #191919;
+  padding: 22px;
+  border: 1px solid #ae8436;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px #0008;
 }
-button{
-  width:100%;padding:15px;margin-top:18px;
-  border:0;border-radius:8px;
-  background:#17191d;color:white;
-  font-size:18px;font-weight:bold
+
+.logo {
+  text-align: center;
+  color: #f0d38b;
+  font-size: 30px;
+  margin-bottom: 5px;
 }
-#invoice{display:none}
-.line{display:flex;justify-content:space-between;margin:13px 0}
-.total{font-size:22px;font-weight:bold}
-@media print{
-  body{padding:0;background:white}
-  .container{box-shadow:none;margin:0;padding:10px;border-radius:0}
-  .inputs,.print-button{display:none!important}
-  #invoice{display:block!important}
+
+h1 {
+  text-align: center;
+  font-size: 26px;
+  margin: 5px 0;
+  color: #f0d38b;
+  letter-spacing: 2px;
+}
+
+h2 {
+  text-align: center;
+  font-size: 19px;
+  margin: 12px 0;
+  color: #d6ad55;
+}
+
+.info {
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.8;
+  color: #b7afa0;
+}
+
+hr {
+  border: 0;
+  border-top: 1px dashed #ae8436;
+  margin: 20px 0;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin: 17px 0 7px;
+  color: #f0d38b;
+  font-size: 14px;
+}
+
+input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ae8436;
+  border-radius: 9px;
+  font-size: 18px;
+  background: #242424;
+  color: #fff;
+  outline: none;
+}
+
+input:focus {
+  border-color: #f0d38b;
+  box-shadow: 0 0 5px #ae843655;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 19px;
+  border: 1px solid #d6ad55;
+  border-radius: 10px;
+  background: #d6ad55;
+  color: #111;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:active {
+  opacity: 0.8;
+}
+
+.print-button {
+  background: #191919;
+  color: #f0d38b;
+}
+
+#invoice {
+  display: none;
+  background: #191919;
+  color: #f8f6f0;
+  border: 1px solid #ae8436;
+  border-radius: 12px;
+  padding: 15px;
+  margin-top: 20px;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 14px 0;
+  font-size: 15px;
+}
+
+.line strong {
+  text-align: right;
+}
+
+.total {
+  font-size: 21px;
+  font-weight: bold;
+  color: #f0d38b;
+}
+
+.thanks {
+  text-align: center;
+  font-weight: bold;
+  margin-top: 25px;
+  color: #d6ad55;
+}
+
+.footer {
+  text-align: center;
+  color: #d6ad55;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-top: 22px;
+}
+
+@media print {
+  body {
+    padding: 0;
+    background: white;
+    color: black;
+  }
+
+  .container {
+    box-shadow: none;
+    margin: 0;
+    padding: 10px;
+    border: 0;
+    border-radius: 0;
+    background: white;
+    color: black;
+  }
+
+  .inputs,
+  .print-button,
+  .footer {
+    display: none !important;
+  }
+
+  #invoice {
+    display: block !important;
+    background: white;
+    color: black;
+    border: 0;
+  }
+
+  .line,
+  .total,
+  .thanks {
+    color: black;
+  }
+
+  hr {
+    border-top: 1px dashed black;
+  }
 }
 </style>
 </head>
+
 <body>
+
 <div class="container">
+
+  <div class="logo">✦</div>
+
   <div class="info">
     <h1>LA ROSE D’OR</h1>
     <h2>FACTURE</h2>
+
     42 AVENUE PIERRE BROSSOLETTE<br>
     92240 MALAKOFF<br>
     SIRET : 943 447 532<br>
@@ -62,126 +224,288 @@ button{
   <hr>
 
   <div class="inputs">
+
     <label>Nombre de repas</label>
-    <input id="repas" type="number" min="0" placeholder="Nombre de repas">
+    <input
+      id="repas"
+      type="number"
+      min="1"
+      step="1"
+      placeholder="Nombre de repas"
+      value="1"
+    >
 
-    <label>Prix unitaire TTC (€)</label>
-    <input id="prix" type="number" min="0" step="0.01" placeholder="Prix en euros">
+    <label>Prix TTC total (€)</label>
+    <input
+      id="prix"
+      type="number"
+      min="0.01"
+      step="0.01"
+      placeholder="Prix total en euros"
+    >
 
-    <button onclick="generer()">GÉNÉRER LA FACTURE</button>
+    <button onclick="generer()">
+      GÉNÉRER LA FACTURE
+    </button>
+
   </div>
 
   <div id="invoice">
+
     <hr>
-    <div class="line"><span>Date :</span><strong id="date"></strong></div>
-    <div class="line"><span>Nombre de repas :</span><strong id="nb"></strong></div>
+
+    <div class="line">
+      <span>Date :</span>
+      <strong id="date"></strong>
+    </div>
+
+    <div class="line">
+      <span>Nombre de repas :</span>
+      <strong id="nb"></strong>
+    </div>
+
     <hr>
-    <div class="line"><span>Total HT :</span><strong id="ht"></strong></div>
-    <div class="line"><span>TVA 10% :</span><strong id="tva"></strong></div>
+
+    <div class="line">
+      <span>Montant HT :</span>
+      <strong id="ht"></strong>
+    </div>
+
+    <div class="line">
+      <span>TVA 10% :</span>
+      <strong id="tva"></strong>
+    </div>
+
     <hr>
-    <div class="line total"><span>Total TTC :</span><strong id="ttc"></strong></div>
+
+    <div class="line total">
+      <span>Total TTC :</span>
+      <strong id="ttc"></strong>
+    </div>
+
     <hr>
-    <p style="text-align:center;font-weight:bold;margin-top:25px">
+
+    <p class="thanks">
       MERCI DE VOTRE CONFIANCE
     </p>
+
   </div>
 
-<button class="print-button" onclick="imprimerPassPRNT()">
+  <button
+    class="print-button"
+    onclick="imprimerPassPRNT()"
+  >
     IMPRIMER LA FACTURE
   </button>
+
+  <div class="footer">
+    LA ROSE D’OR • MALAKOFF
+  </div>
+
 </div>
 
 <script>
-function generer(){
-  const repas = Number(document.getElementById('repas').value);
-  const prix = Number(document.getElementById('prix').value);
 
-  if(!repas || repas < 0 || !prix || prix < 0){
-    alert("Veuillez saisir le nombre de repas et le prix.");
+function generer() {
+
+  const repasTexte =
+    document.getElementById('repas').value.trim();
+
+  const prixTexte =
+    document.getElementById('prix').value.trim();
+
+  const repas = Number(repasTexte);
+  const prix = Number(prixTexte);
+
+  if (
+    repasTexte === "" ||
+    !Number.isSafeInteger(repas) ||
+    repas < 1 ||
+    prixTexte === "" ||
+    !Number.isFinite(prix) ||
+    prix <= 0
+  ) {
+    alert("Veuillez vérifier le nombre de repas et le prix TTC total.");
     return;
   }
 
-  const ttc = Math.round(prix * 100) / 100;
-  const tva = Math.round(ttc * 10) / 100;
-  const ht = Math.round((ttc - tva) * 100) / 100;
+  // Le prix saisi est déjà le montant total TTC.
+  // Le nombre de repas est uniquement informatif.
+  // Aucune multiplication par le nombre de repas.
 
-  const euro = n => n.toFixed(2) + " €";
+  const ttc = Math.round((prix + Number.EPSILON) * 100) / 100;
+
+  const ht = Math.round(
+    (ttc / 1.10 + Number.EPSILON) * 100
+  ) / 100;
+
+  const tva = Math.round(
+    (ttc - ht) * 100
+  ) / 100;
+
+  const euro = n =>
+    n.toFixed(2).replace(".", ",") + " €";
 
   document.getElementById('date').textContent =
     new Date().toLocaleDateString('fr-FR');
-  document.getElementById('nb').textContent = repas;
-  document.getElementById('ht').textContent = euro(ht);
-  document.getElementById('tva').textContent = euro(tva);
-  document.getElementById('ttc').textContent = euro(ttc);
 
-  document.getElementById('invoice').style.display = 'block';
+  document.getElementById('nb').textContent = repas;
+
+  document.getElementById('ht').textContent =
+    euro(ht);
+
+  document.getElementById('tva').textContent =
+    euro(tva);
+
+  document.getElementById('ttc').textContent =
+    euro(ttc);
+
+  document.getElementById('invoice').style.display =
+    'block';
 }
-  function imprimerPassPRNT() {
-  if (document.getElementById('invoice').style.display !== 'block') {
+
+function imprimerPassPRNT() {
+
+  if (
+    document.getElementById('invoice').style.display !== 'block'
+  ) {
     alert("Veuillez générer la facture d'abord.");
     return;
   }
 
+  const date =
+    document.getElementById('date').textContent;
+
+  const nb =
+    document.getElementById('nb').textContent;
+
+  const ht =
+    document.getElementById('ht').textContent;
+
+  const tva =
+    document.getElementById('tva').textContent;
+
+  const ttc =
+    document.getElementById('ttc').textContent;
+
   const contenu = `
-  <!DOCTYPE html>
-  <html>
-  <head>
-    <meta charset="UTF-8">
-    <style>
-    body {
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
   font-family: Arial, sans-serif;
   color: black;
-  font-size: 29px;
-  font-weight: 900;
+  font-size: 26px;
+  font-weight: bold;
   padding: 10px;
-  line-height: 1.6;
+  line-height: 1.5;
 }
-h1 { font-size: 38px; }
-h2 { font-size: 34px; }
 
-.total { font-size: 36px; }
-      .line {
-        display: flex;
-        justify-content: space-between;
-        margin: 18px 0;
-      }
-      .total { font-size: 30px; }
-      hr {
-        border: 0;
-        border-top: 2px dashed black;
-        margin: 18px 0;
-      }
-    </style>
-  </head>
-  <body>
-    
-    <h1>FACTURE</h1>
-    <h2>LA ROSE D’OR</h2>
-    <p>
-      42 AVENUE PIERRE BROSSOLETTE<br>
-      92240 MALAKOFF<br>
-      SIRET : 943 447 532<br>
-      Téléphone : 01 71 10 62 37
-    </p>
-    <hr>
-    <div class="line"><span>Date :</span><span>${document.getElementById('date').textContent}</span></div>
-    <div class="line"><span>Nombre de repas :</span><span>${document.getElementById('nb').textContent}</span></div>
-    <hr>
-    <div class="line"><span>Total HT :</span><span>${document.getElementById('ht').textContent}</span></div>
-    <div class="line"><span>TVA 10% :</span><span>${document.getElementById('tva').textContent}</span></div>
-    <hr>
-    <div class="line total"><span>Total TTC :</span><span>${document.getElementById('ttc').textContent}</span></div>
-    <hr>
-    <p>MERCI</p>
-  </body>
-  </html>`;
+h1 {
+  font-size: 38px;
+  text-align: center;
+}
 
-  const url = "starpassprnt://v1/print/nopreview?"
-    + "back=" + encodeURIComponent(window.location.href)
-    + "&html=" + encodeURIComponent(contenu);
+h2 {
+  font-size: 32px;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 18px 0;
+}
+
+.line span:last-child {
+  text-align: right;
+}
+
+.total {
+  font-size: 31px;
+  font-weight: 900;
+}
+
+hr {
+  border: 0;
+  border-top: 2px dashed black;
+  margin: 20px 0;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>FACTURE</h1>
+<h2>LA ROSE D’OR</h2>
+
+<p>
+42 AVENUE PIERRE BROSSOLETTE<br>
+92240 MALAKOFF<br>
+SIRET : 943 447 532<br>
+Téléphone : 01 71 10 62 37
+</p>
+
+<hr>
+
+<div class="line">
+<span>Date :</span>
+<span>${date}</span>
+</div>
+
+<div class="line">
+<span>Nombre de repas :</span>
+<span>${nb}</span>
+</div>
+
+<hr>
+
+<div class="line">
+<span>Montant HT :</span>
+<span>${ht}</span>
+</div>
+
+<div class="line">
+<span>TVA 10% :</span>
+<span>${tva}</span>
+</div>
+
+<hr>
+
+<div class="line total">
+<span>Total TTC :</span>
+<span>${ttc}</span>
+</div>
+
+<hr>
+
+<p>MERCI DE VOTRE CONFIANCE</p>
+
+</body>
+</html>`;
+
+  const url =
+    "starpassprnt://v1/print/nopreview?" +
+    "back=" + encodeURIComponent(window.location.href) +
+    "&html=" + encodeURIComponent(contenu);
 
   window.location.href = url;
-  }
+}
+
 </script>
+
 </body>
 </html>
